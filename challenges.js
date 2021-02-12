@@ -60,7 +60,13 @@ addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
 
-
+function addTwoNumbers (x, y) {
+  if (typeof x === 'number' && typeof y === 'number') {
+    return x + y;
+  } else {
+    return NaN;
+  }
+}
 
 
 
@@ -83,7 +89,13 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-
+function sumNumbers(x) {
+  let y = 0;
+  for (i = 0; i < x.length; i++) {
+    y = y + x[i];
+  }
+  return y;
+}
 
 
 
@@ -105,7 +117,13 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-
+function addList() {
+  let x = 0;
+  for (i = 0; i < arguments.length; i++) {
+    x = x + arguments[i];
+  }
+  return x;
+}
 
 
 
@@ -130,7 +148,15 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 
-
+function computeRemainder(x, y) {
+  let z = 0;
+  if (y != 0) {
+    z = x % y
+    return z;
+  } else {
+      return Infinity;
+  }
+}
 
 
 
