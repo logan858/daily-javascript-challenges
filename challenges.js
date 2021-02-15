@@ -208,7 +208,10 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-
+function reverseUpcaseString(x) {
+  x = x.split("").reverse().join("").toUpperCase();
+  return x;
+}
 
 
 
@@ -229,7 +232,16 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-
+function removeEnds(x) {
+  if(x.length >= 3) {
+    x = x.split("")
+    x.shift()
+    x.pop()
+    return x.join("");
+  } else {
+    return "";
+  }
+}
 
 
 
@@ -252,8 +264,15 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
-
-
+function charCount(x) {
+  let z = {}; 
+  for (i = 0; i < x.length; i++) {
+    let objMkr = new RegExp(x[i], "g")
+    Object.assign(z, {[x[i]]: x.match(objMkr).length});
+  }
+  return z;
+}
+//^ this one took abit of research
 
 
 /*-----------------------------------------------------------------
@@ -277,7 +296,19 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
+function formatWithPadding(x, y, z) {
+  x = x.toString();
+  let a = ""
 
+  if (x.length >= z ) {
+    return x;
+  } else {
+    for (i = 0; i < z - x.length ; i++) {
+      a = a + y 
+    }
+    return a + x;
+  }
+}
 
 
 
@@ -302,8 +333,17 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-
-
+function isPalindrome(x) {
+  x = x.toLowerCase().replace(/\s/g, "")
+  let y = x.split("").reverse().join("");
+  if(x.length <= 1) {
+    return true;
+  } else if (y === x) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 
@@ -329,6 +369,19 @@ hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
+function hammingDistance (x, y) {
+  let dif = 0
+  if (x.length != y.length) {
+      return NaN;
+  } else {
+    for (i = 0; i < x.length; i++) {
+      if (x[i] !== y[i]) {
+        dif = dif + 1;
+      } 
+    }
+    return dif;
+  }
+}
 
 
 
@@ -352,6 +405,14 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
+function mumble (x) {
+  let y = []
+  x = x.split("")
+  for (i = 0; i < x.length; i++) {
+    y[i] = x[i].repeat(i + 1)
+  }
+  return y.join("-");
+}
 
 
 
