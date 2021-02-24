@@ -435,7 +435,13 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-
+function fromPairs(x) {
+  let y = {}
+  for(let key of x) {
+    y[key[0]] = key[1]
+  }
+  return y;
+}
 
 
 
@@ -457,9 +463,15 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-
-
-
+function mergeObjects(x, y, q) {
+  let z = {}
+  z = {
+    ...q,
+    ...y,
+    ...x
+  }
+  return z;
+}
 
 
 /*-----------------------------------------------------------------
