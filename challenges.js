@@ -544,7 +544,6 @@ function mapArray(x, y) {
 }
 
 
-
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -578,6 +577,12 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
+function reduceArray(x, y, z) {
+  for(i = 0; i < x.length; i++) {
+    z = y(z, x[i], i)
+  }
+  return z
+}
 
 
 
@@ -609,7 +614,9 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
+function flatten(x) {
 
+}
 
 
 
