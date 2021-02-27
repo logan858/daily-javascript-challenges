@@ -371,7 +371,7 @@ hammingDistance('abc', 'ab'); //=> NaN
 
 function hammingDistance (x, y) {
   let dif = 0
-  if (x.length != y.length) {
+  if (x.length !== y.length) {
       return NaN;
   } else {
     for (i = 0; i < x.length; i++) {
@@ -463,16 +463,10 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(x, y, q) {
-  let z = {}
-  z = {
-    ...q,
-    ...y,
-    ...x
-  }
-  return z;
+function mergeObjects(x, y, z) {
+  let q = Object.assign(x, y, z)
+  return q;
 }
-
 
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -506,7 +500,10 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-
+function findHighestPriced(x) {
+  x = x.reduce((biggest, y) => biggest.price >= y.price ? biggest : y)
+  return x;
+}
 
 
 
