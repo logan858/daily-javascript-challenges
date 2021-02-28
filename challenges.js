@@ -615,7 +615,7 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
 function flatten(x) {
-
+  return x.flat(10)
 }
 
 
