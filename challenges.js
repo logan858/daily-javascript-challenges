@@ -641,12 +641,16 @@ isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
 function isPrime(x) {
-  for (i = 2; i < x; i++) {
-    if(x % i == 0) {
-      return false;
+  if(x > 1 && Number.isInteger(x)) {
+    for (i = 2; i < x; i++) {
+      if(x % i == 0) {
+        return false;
+      }
     }
+    return true;
+  } else {
+    return false;
   }
-  return true;
 }
 
 
@@ -675,6 +679,21 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
+function primeFactors(x) {
+  let y = []
+  if (x > 1) {
+    for(i = 2; i <= x; i++) {
+      if ( x % i === 0 ) {
+        x = x / i
+        y.push(i)
+        i--
+      }
+    }
+  return y;
+  } else {
+    return y;
+  }
+}
 
 
 
