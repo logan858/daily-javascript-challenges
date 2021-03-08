@@ -754,7 +754,29 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-
+function balancedBrackets(x) {
+  let keys = {
+      '(': ')',
+      '[': ']',
+      '{': '}'
+  }
+  let startArr =  []
+  for(i = 0; i < x.length; i++) {
+    if(x[i] === "{" || x[i] === "[" || x[i] === "(") {
+      startArr.push(x[i])
+    } else {
+      let closer = startArr.pop()
+      console.log(closer)
+      if(x[i] !== keys[closer]) {
+        return false;
+      }
+    }
+  }
+  if(startArr.length !== 0) {
+    return false
+  }
+  return true;
+}
 
 
 
