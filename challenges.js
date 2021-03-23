@@ -806,6 +806,16 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
+function isWinningTicket(x) {
+  let results = x.every(function(i) {
+    for(j = 0; j < i[0].length; j++) {
+      if(i[0][j].charCodeAt() === i[1]) {
+        return true;
+      }
+    }
+  })
+  return results
+}
 
 
 
