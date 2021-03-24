@@ -846,7 +846,14 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-
+function getNumForIP(x) {
+  let formattedString = x.split(".").map(i => Number(i)).reverse()
+  let result = 0;
+  for(i = 0; i < formattedString.length; i++) {
+    result += (formattedString[i] * (256 ** i))
+  }
+  return result;
+}
 
 
 
@@ -873,9 +880,10 @@ toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
-
-
-
+function toCamelCase(x) {
+  let firstStep = x.replace(/([-]\w|[_]\w)/g, i => i.toUpperCase()).replace(/([-]|[_])/g, "")
+  return firstStep
+}
 
 
 /*-----------------------------------------------------------------
@@ -903,6 +911,14 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
+function countTheBits (x) {
+  if(x == 0) {
+    return 0;
+  } else {
+    let binary = x.toString(2)
+    return binary.match(/(1)/g).length
+  }
+}
 
 
 
