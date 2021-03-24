@@ -947,6 +947,29 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
+function gridTrip (num, directions) {
+  let x = num[0]
+  let y = num[1]
+  let modifier = 0
+  let newDirects = directions.match(/[A-Z][0-9]*/g)
+
+  for(i = 0; i < newDirects.length; i++) {
+    if(newDirects[i].startsWith("D")) {
+        modifier = Number(newDirects[i].match(/([0-9]+)/g))
+       x -= modifier
+    } else if (newDirects[i].startsWith("U")) {
+       modifier = Number(newDirects[i].match(/([0-9]+)/g))
+       x += modifier
+    } else if(newDirects[i].startsWith("L")) {
+       modifier = Number(newDirects[i].match(/([0-9]+)/g))
+       y -= modifier
+    } else if(newDirects[i].startsWith("R")) {
+       modifier = Number(newDirects[i].match(/([0-9]+)/g))
+       y += modifier
+    }
+  }
+  return [x, y]
+}
 
 
 
@@ -977,7 +1000,17 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-
+function addChecker(x, y) {
+  let sumOfX = 0
+  for(i = 0; i <x.length; i++) {
+    for(j = i + 1; j < x.length; j++ ){
+      if(x[i] + x[j] === y) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
 
 
