@@ -1043,4 +1043,33 @@ totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
 
-
+function totalTaskTime(x, y) {
+  let timer = 0
+  for(i = 0; i < x.length; i++){
+      while(x[i] > 0) {
+        console.log(x)
+        x[i] -= 1
+        timer += 1
+        if(y == 2) {
+            x[y - 1] -= 1
+            if(x[y - 1] == 0) {
+              x.splice(y - 1, 1)
+            }
+        }
+        if(y == 3) {
+            x[y - 1] -= 1
+            x[y - 2] -= 1
+            if(x[y - 1] == 0) {
+              x.splice(y - 1, 1)
+            }
+            if(x[y - 2] == 0) {
+              x.splice(y - 2, 1)
+            }
+        }
+        if(x[i] == 0) {
+          x.splice(0, 1)
+        }
+      }    
+  }
+ return timer
+}
